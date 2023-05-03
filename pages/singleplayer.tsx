@@ -42,7 +42,7 @@ const Singleplayer = () => {
     const newPara = para
       .split(".")
       .slice(0, counter)
-      .map((str, index) => <p className="fade-in-text">{str}</p>);
+      .map((str, index) => <p key={index} className="fade-in-text">{str}</p>);
       console.log(data?.Name)
     return (
       <div className="h-[180vh] lg:h-[100vh] bg-black text-center lg:py-[10%] py-[25%]">
