@@ -16,7 +16,7 @@ export function getAllPlayers(){
     const {data,error,isLoading}=useSWR('/api/players',fetcher)
     return {
         data: data,
-        isLoading,
+        isLoading:isLoading,
         isError: error
       }
 }

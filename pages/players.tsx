@@ -2,6 +2,7 @@ import React from 'react'
 import PlayerCard from '@/components/PlayerCard'
 import Link from 'next/link'
 import {  PrismaClient } from '@prisma/client'
+import prisma from '@/utils/prisma'
 
 const players = ({data}) => {
   return (
@@ -24,7 +25,7 @@ const players = ({data}) => {
     </div>
   )
 }
-export const prisma = new PrismaClient()
+
 export default players
 export async function getStaticProps() {
     const data=await prisma.player.findMany()

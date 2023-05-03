@@ -1,6 +1,7 @@
 import LoadingSpinner from "@/components/LoadingSpinner";
 import { getPlayer } from "@/utils/function";
 import { Card } from "@/utils/interfaces";
+import { PrismaClient } from "@prisma/client";
 import React, { useEffect, useState } from "react";
 const Singleplayer = () => {
   const [id, setId]           = useState<number>();
@@ -125,8 +126,12 @@ const Singleplayer = () => {
 };
 
 export default Singleplayer;
-// export async function getStaticProps(context) {
-//   return {
-//     props: {}, // will be passed to the page component as props
-//   }
-// }
+export async function getStaticProps() {
+  const prisma = new PrismaClient()
+  const data=await prisma.player.findMany()
+  
+  
+  return{
+      props:{data}
+  }
+}
