@@ -8,6 +8,7 @@ const PlayerClues = () => {
   const router=useRouter()
   const {id}=router.query
       const fetchPlayer=getPlayer(id)
+
     if(fetchPlayer.isLoading) return(
         <div className='h-screen bg-black'>
         <LoadingSpinner></LoadingSpinner>
@@ -20,7 +21,6 @@ const PlayerClues = () => {
     let para=data?.Clues
     const newPara=para?.split(".").map(str => <p key={str}>{str}</p>);
   if(data)
-  console.log(data?.Name)
   return(
     <div className='bg-black h-screen pb-20 flex flex-col items-center justify-center '>
       <div className='w-[500px]'>
@@ -30,6 +30,7 @@ const PlayerClues = () => {
       <p className='text-3xl pl-7 text-white  mt-5 flex gap-2'><span className='text-green-500'>famous Club: </span>{data?.Club} </p>
       <h1 className='text-white pl-7 mt-5 text-3xl'>Clues:</h1>
       <p className='text-white pl-7 '>{newPara}</p>
+      <button className='text-green-600 p-2 bg-black rounded-full' onClick={()=>window.location.reload()}>Refresh</button>
   
       </div>
     </div>

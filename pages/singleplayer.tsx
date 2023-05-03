@@ -1,8 +1,6 @@
 import LoadingSpinner from "@/components/LoadingSpinner";
 import { getPlayer } from "@/utils/function";
 import { Card } from "@/utils/interfaces";
-import prisma from "@/utils/prisma";
-import { PrismaClient } from "@prisma/client";
 import React, { useEffect, useState } from "react";
 const Singleplayer = () => {
   const [id, setId]           = useState<number>();
@@ -45,7 +43,6 @@ const Singleplayer = () => {
       .split(".")
       .slice(0, counter)
       .map((str, index) => <p key={index} className="fade-in-text">{str}</p>);
-      console.log(data?.Name)
     return (
       <div className="h-[180vh] lg:h-[100vh] bg-black text-center lg:py-[10%] py-[25%]">
         <form
