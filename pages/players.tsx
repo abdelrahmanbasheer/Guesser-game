@@ -2,7 +2,7 @@ import useSWR from 'swr'
 import React from 'react'
 import PlayerCard from '@/components/PlayerCard'
 import Link from 'next/link'
-import { getAllPlayers } from '@/utils/functions'
+import { getAllPlayers } from '@/utils/function'
 
 const players = () => {
   

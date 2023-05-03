@@ -1,7 +1,7 @@
 import React from 'react'
 import { useRouter } from 'next/router'
 import { Card } from '@/utils/interfaces'
-import { getPlayer } from '@/utils/functions'
+import { getPlayer } from '@/utils/function'
 import LoadingSpinner from '@/components/LoadingSpinner'
 import Image from 'next/image'
 const PlayerClues = () => {

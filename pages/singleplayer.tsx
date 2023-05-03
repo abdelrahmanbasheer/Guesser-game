@@ -1,5 +1,5 @@
 import LoadingSpinner from "@/components/LoadingSpinner";
-import { getPlayer } from "@/utils/functions";
+import { getPlayer } from "@/utils/function";
 import { Card } from "@/utils/interfaces";
 import React, { useEffect, useState } from "react";
 const Singleplayer = () => {
