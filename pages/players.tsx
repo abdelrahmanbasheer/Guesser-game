@@ -32,7 +32,6 @@ export async function getStaticProps() {
     const prisma = new PrismaClient()
     const data=await prisma.player.findMany()
     
-    
     return{
         props:{data}
     }
