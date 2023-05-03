@@ -44,7 +44,7 @@ const Singleplayer = () => {
       .slice(0, counter)
       .map((str, index) => <p key={index} className="fade-in-text">{str}</p>);
     return (
-      <div className="h-[180vh] lg:h-[100vh] bg-black text-center lg:py-[10%] py-[25%]">
+      <div className="h-[180vh] bg-black text-center lg:py-[10%] py-[25%]">
         <form
           onSubmit={(e) => {
             e.preventDefault();
