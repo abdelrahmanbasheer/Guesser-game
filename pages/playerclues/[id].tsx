@@ -18,7 +18,7 @@ const PlayerClues = () => {
     )
     const {data}=fetchPlayer as unknown as Card  
     let para=data?.Clues
-    const newPara=para.split(".").map(str => <p key={str}>{str}</p>);
+    const newPara=para?.split(".").map(str => <p key={str}>{str}</p>);
   if(data)
   console.log(data?.Name)
   return(
