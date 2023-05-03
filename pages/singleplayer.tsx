@@ -90,7 +90,6 @@ const Singleplayer = () => {
           <img
             src={data?.Image}
             className="fade-in w-[600px] rounded-3xl m-5 h-[300px] mx-[auto]"
-            loading="lazy"
           ></img>
         )}
         <h1 className="text-white pl-7 mt-5 text-3xl mb-4">Clues:</h1>
