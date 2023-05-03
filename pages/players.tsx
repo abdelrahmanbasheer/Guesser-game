@@ -21,8 +21,14 @@ const players = () => {
     <div className='bg-black h-full pb-10'>
         <h1 className='text-3xl text-white font-bold mb-5 p-4'>Players:</h1>
         <ul className='flex md:flex-row justify-center flex-wrap flex-col m-10 gap-5'>
-            {data.map((player:object)=> <Link key={player.id} href={`playerclues/${player.id}`}>
-            <li><PlayerCard data={player}></PlayerCard></li>
+            {data.map((player:any)=> <Link key={player.id} href={`playerclues/${player.id}`}>
+            <li><PlayerCard data={player} player={{
+                    Name: '',
+                    Image: '',
+                    Clues: '',
+                    Club: '',
+                    id: 0
+                }}></PlayerCard></li>
             </Link>)}
         </ul>
        
