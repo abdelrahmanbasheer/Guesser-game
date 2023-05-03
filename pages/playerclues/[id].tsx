@@ -25,7 +25,7 @@ const PlayerClues = () => {
     <div className='bg-black h-screen pb-20 flex flex-col items-center justify-center '>
       <div className='w-[500px]'>
       <Image src={data?.Image} className=" w-[400px] ml-12 mt-10 rounded-2xl"  alt=""  loading='lazy'/>
-      <p className='text-3xl  pl-7 text-white mt-5'><span className='text-green-500'>Name: </span>{data.Name}</p>
+      <p className='text-3xl  pl-7 text-white mt-5'><span className='text-green-500'>Name: </span>{data?.Name}</p>
       {/* <img src="https://icons.iconarchive.com/icons/giannis-zographos/english-football-club/256/Arsenal-FC-icon.png" className='w-[150px]' alt="" /> */}
       <p className='text-3xl pl-7 text-white  mt-5 flex gap-2'><span className='text-green-500'>famous Club: </span>{data?.Club} </p>
       <h1 className='text-white pl-7 mt-5 text-3xl'>Clues:</h1>
