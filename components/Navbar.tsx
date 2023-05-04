@@ -20,7 +20,7 @@ const Navbar = () => {
           <p className="font-semibold text-white">Single-Player</p>
         </li>
         </Link>
-        <Link href={"/"}>
+        <Link href={"/mentor"}>
         <li>
           <p className="font-semibold text-white">حَكم</p>
         </li>
