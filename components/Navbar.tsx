@@ -22,7 +22,7 @@ const Navbar = () => {
         </Link>
         <Link href={"/"}>
         <li>
-          <p className="font-semibold text-white">Mentor</p>
+          <p className="font-semibold text-white">حَكم</p>
         </li>
         </Link>
       </ul>

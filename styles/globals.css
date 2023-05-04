@@ -98,3 +98,6 @@ body{
     overflow-x: hidden;
     overflow-y: auto;
 }
+html{
+  background-color: black;
+}

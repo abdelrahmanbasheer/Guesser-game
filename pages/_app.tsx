@@ -4,10 +4,10 @@ import type { AppProps } from 'next/app'
 import { Analytics } from '@vercel/analytics/react';
 export default function App({ Component, pageProps }: AppProps) {
   return(
-  <>
+  <main className='bg-black'>
   <Navbar></Navbar>
   <Component {...pageProps} />
   <Analytics />
-  </>
+  </main>
   )
 }
