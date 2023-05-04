@@ -14,7 +14,7 @@ const Singleplayer = () => {
   }, []);
 
   function randomId() {
-    const tempId = Math.floor(Math.random() * 40) + 1;
+    const tempId = Math.floor(Math.random() * 60) + 1;
     setId(tempId);
   }
   function handleSubmit() {
