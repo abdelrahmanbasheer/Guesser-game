@@ -8,13 +8,14 @@ const Singleplayer = () => {
   const [answers, setAnswers] = useState<number>(5);
   const [input, setInput]     = useState<string>("");
   const [result, setResult]   = useState<boolean | string>();
+  const [res, setRes] = useState<boolean>(false)
 
   useEffect(() => {
     randomId();
   }, []);
 
   function randomId() {
-    const tempId = Math.floor(Math.random() * 60) + 1;
+    const tempId = Math.floor(Math.random() * 80) + 1;
     setId(tempId);
   }
   const handleChange=(e)=>{
@@ -23,11 +24,40 @@ const Singleplayer = () => {
 
   }
   function handleSubmit() {
+    let splitFamName=data.FamName.split("")
+    let splitName=    data.Name.split("")
+    let splitInput=   input.split("")
+    let counter=0
+    let inputcouter=0
+    if(splitFamName.length>=5){
+      inputcouter=3
+    }
+    if(splitFamName.length>=9){
+      inputcouter=4
+    }
+    if(splitFamName.length<=4){
+      inputcouter=2
+    }
     if (input.toLowerCase().trim() === data.Name.toLowerCase().trim()||input.toLowerCase().trim() === data.FamName.toLowerCase().trim()){
       setResult("true");
       setInput("");
-    } else {
-      setResult("false");
+    } else if (input.length<=splitFamName.length+1){
+    for(let i=0;i<splitFamName.length;i++){
+      if(splitFamName[i]!=splitInput[i]){
+          counter++
+      }
+  }
+  if(counter<=inputcouter){
+    setResult("true");
+    setInput("");
+    setRes(true)
+  }else{
+  setResult("false")
+  setInput("");
+  }
+   }
+    else{
+      setResult("false")
       setInput("");
     }
   }
@@ -37,9 +67,10 @@ const Singleplayer = () => {
       element.scrollIntoView({ behavior: 'smooth' });
     }
   };
-
+  //fetching 
   const fetchPlayer = getPlayer(id);
   const { data } = fetchPlayer as unknown as Card;
+
 
   if(fetchPlayer.isLoading) return(
     <div className='h-screen bg-black'>
@@ -73,17 +104,18 @@ const Singleplayer = () => {
             type="submit"
             className=" lg:hover:font-bold rounded-full cursor-pointer text-white p-2 bg-green-600"
             onClick={() => setAnswers((prev) => prev - 1)}
-            disabled={answers === 0 ? true : false}
+            disabled={answers === 0 ? true : false ||result==="true"? true:false}
           ></input>
           <p className="text-white p-5 text-sm">
-            خلي بالك فيه لاعيبه ممكن تبقى باسمها كامل و لعيبه تانيه باسم الشهره
-            او الاسم الاخير 
+            خلي بالك  ممكن تبقى باسمها كامل او باسم الشهره
+            او الاسم الاخير
             <br />
             <span className="text-green-600 font-semibold">
               {" "}
               فاضلك {answers + " "}محاولات{" "}
             </span>
           </p>
+          {res&&<p className="text-white">his correct name is :{data.Name}</p>}
         </form>
         <p
           className={`m-5 ${
@@ -115,6 +147,7 @@ const Singleplayer = () => {
               setCounter(1);
               setAnswers(5);
               handleClickScroll();
+              setRes(false)
             }}
           >
             Next player
