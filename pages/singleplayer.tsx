@@ -31,6 +31,12 @@ const Singleplayer = () => {
       setInput("");
     }
   }
+  const handleClickScroll = () => {
+    const element = document.getElementById('nav-1');
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
 
   const fetchPlayer = getPlayer(id);
   const { data } = fetchPlayer as unknown as Card;
@@ -108,6 +114,7 @@ const Singleplayer = () => {
               setInput("");
               setCounter(1);
               setAnswers(5);
+              handleClickScroll();
             }}
           >
             Next player
