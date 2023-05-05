@@ -25,7 +25,8 @@ const players = ({data}) => {
                     Image: '',
                     Clues: '',
                     Club: '',
-                    id: 0
+                    id: 0,
+                    FamName:"",
                 }}></PlayerCard></li>
             </Link>)}
         </ul>

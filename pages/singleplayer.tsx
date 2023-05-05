@@ -17,9 +17,15 @@ const Singleplayer = () => {
     const tempId = Math.floor(Math.random() * 60) + 1;
     setId(tempId);
   }
+  const handleChange=(e)=>{
+    e.preventDefault();
+    setInput(e.target.value)
+
+  }
   function handleSubmit() {
-    if (input.toLowerCase().trim() === data.Name.toLowerCase().trim()) {
+    if (input.toLowerCase().trim() === data.Name.toLowerCase().trim()||input.toLowerCase().trim() === data.FamName.toLowerCase().trim()){
       setResult("true");
+      setInput("");
     } else {
       setResult("false");
       setInput("");
@@ -54,10 +60,8 @@ const Singleplayer = () => {
           <input
             className="m-2"
             type="text"
-            onChange={(e) => {
-              e.preventDefault();
-              setInput(e.target.value);
-            }}
+            onChange={(e) => 
+              handleChange(e)}
           />
           <input
             type="submit"

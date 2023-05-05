@@ -15,7 +15,8 @@ model Player {
   Name        String    @unique
   Image       String    
   Clues       String    @db.VarChar(9999)
-  Club        String
+  Club        String    
+  FamName     String    
 
   
 }

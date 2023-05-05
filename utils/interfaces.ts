@@ -5,6 +5,7 @@
     Clues:string,
     Club:string,
     id:number,
+    FamName:string,
     },
     player:{
         Name:string,
@@ -12,6 +13,7 @@
         Clues:string,
         Club:string,
         id:number,
+        FamName:string,
         },
 
 
