@@ -18,7 +18,7 @@ const players = ({data}) => {
 }) => {
                 if (query === '') {
                   return player;
-                } else if (player.Name.toLowerCase().startsWith(query.toLowerCase())) {
+                } else if (player.Name.toLowerCase().startsWith(query.toLowerCase())||player.FamName.toLowerCase().startsWith(query.toLowerCase())) {
                   return player;
                 }
               }).map((player:any)=> <Link key={player.id} href={`playerclues/${player.id}`}>
