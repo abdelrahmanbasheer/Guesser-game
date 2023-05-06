@@ -69,7 +69,7 @@ const Singleplayer = ({allPlayers}) => {
     }
   };
   //fetching 
-  const fetchPlayer = getPlayer(59);
+  const fetchPlayer = getPlayer(id);
   const { data } = fetchPlayer as unknown as Card;
 
 
