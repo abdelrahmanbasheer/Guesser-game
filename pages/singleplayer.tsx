@@ -72,7 +72,6 @@ const Singleplayer = ({allPlayers}) => {
   const fetchPlayer = getPlayer(id);
   const { data } = fetchPlayer as unknown as Card;
 
-
   if(fetchPlayer.isLoading) return(
     <div className='h-screen bg-black'>
     <LoadingSpinner></LoadingSpinner>
