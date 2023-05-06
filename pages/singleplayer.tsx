@@ -1,8 +1,9 @@
 import LoadingSpinner from "@/components/LoadingSpinner";
 import { getPlayer } from "@/utils/function";
 import { Card } from "@/utils/interfaces";
+import prisma from "@/utils/prisma";
 import React, { useEffect, useState } from "react";
-const Singleplayer = () => {
+const Singleplayer = ({allPlayers}) => {
   const [id, setId]           = useState<number>();
   const [counter, setCounter] = useState<number>(1);
   const [answers, setAnswers] = useState<number>(5);
@@ -29,7 +30,7 @@ const Singleplayer = () => {
     let splitInput=   input.split("")
     let counter=0
     let inputcouter=0
-    if(splitFamName.length>=5){
+    if(splitFamName.length>=6){
       inputcouter=3
     }
     if(splitFamName.length>=9){
@@ -53,12 +54,12 @@ const Singleplayer = () => {
     setRes(true)
   }else{
   setResult("false")
-  setInput("");
+
   }
    }
     else{
       setResult("false")
-      setInput("");
+     
     }
   }
   const handleClickScroll = () => {
@@ -68,7 +69,7 @@ const Singleplayer = () => {
     }
   };
   //fetching 
-  const fetchPlayer = getPlayer(id);
+  const fetchPlayer = getPlayer(59);
   const { data } = fetchPlayer as unknown as Card;
 
 
@@ -97,6 +98,7 @@ const Singleplayer = () => {
           <input
             className="m-2"
             type="text"
+            value={input}
             onChange={(e) => 
               handleChange(e)}
           />
@@ -114,6 +116,8 @@ const Singleplayer = () => {
               {" "}
               فاضلك {answers + " "}محاولات{" "}
             </span>
+            <br />
+            لو مش متاكد من الإمْلاء الصح جرب في اسم الشهره و العيله بس منغير الاسم الاول
           </p>
           {res&&<p className="text-white">his correct name is :{data.Name}</p>}
         </form>
@@ -134,6 +138,29 @@ const Singleplayer = () => {
             className="fade-in w-[600px] rounded-3xl m-5 h-[300px] mx-[auto]"
           ></img>
         )}
+
+{/* //suggestions  */}
+        
+          {/* <ul className='flex md:flex-row justify-center flex-wrap flex-col m-10 gap-2 text-green-600'>
+    
+         {  
+          result==="false"&&
+            allPlayers.filter((player: { Name: string }) => {
+                if (input === '') {
+                  return;
+                } else if (player.FamName.toLowerCase().startsWith(input.toLowerCase())) {
+                  return player;
+                }
+              }).map((player:any)=> 
+            <li onClick={()=>setInput(player.Name)}>
+              {player.Name}
+            </li>
+            )
+            
+            }
+            </ul> */}
+
+{/* //suggestions  */}
         <h1 className="text-white pl-7 mt-5 text-3xl mb-4">Clues:</h1>
 
         <p className="text-white p-7 text-base">{newPara}</p>
@@ -167,3 +194,10 @@ const Singleplayer = () => {
 };
 
 export default Singleplayer;
+export async function getStaticProps() {
+  const allPlayers=await prisma.player.findMany()
+  
+  return{
+      props:{allPlayers}
+  }
+}

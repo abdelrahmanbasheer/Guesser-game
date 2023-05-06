@@ -13,20 +13,29 @@ const players = ({data}) => {
         </div>
         <ul className='flex md:flex-row justify-center flex-wrap flex-col m-10 gap-5'>
             {
-            data.filter((player: { Name: string }) => {
+            data.filter((player: {
+              FamName: string, Name: string 
+}) => {
                 if (query === '') {
                   return player;
-                } else if (player.Name.toLowerCase().includes(query.toLowerCase())) {
+                } else if (player.Name.toLowerCase().startsWith(query.toLowerCase())) {
                   return player;
                 }
               }).map((player:any)=> <Link key={player.id} href={`playerclues/${player.id}`}>
             <li><PlayerCard data={player} player={{
-                    Name: '',
-                    Image: '',
-                    Clues: '',
-                    Club: '',
-                    id: 0,
-                    FamName:"",
+                  Name: '',
+                  Image: '',
+                  Clues: '',
+                  Club: '',
+                  id: 0,
+                  FamName: "",
+                }} players={{
+                  Name: '',
+                  Image: '',
+                  Clues: '',
+                  Club: '',
+                  id: 0,
+                  FamName: ''
                 }}></PlayerCard></li>
             </Link>)}
         </ul>
