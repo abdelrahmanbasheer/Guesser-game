@@ -17,7 +17,7 @@ const players:React.FC<Card>= ({data}) => {
   content="Challenger your self with clues where you get 5 different clues to guess the player"></meta>
     </Head>
         <div className='flex mt-7 items-center  md:gap-2'>
-        <h1 className='text-3xl text-white font-bold mb-5 p-4'>Players:</h1> 
+        <p className='text-3xl text-white font-bold mb-5 p-4'>Players:</p> 
         <input className='p-3 h-9 mx-auto rounded-lg capitalize ' placeholder="Enter player to search for " onChange={event => setQuery(event.target.value)} />
         </div>
         <ul className='flex md:flex-row justify-center flex-wrap flex-col m-10 gap-5'>

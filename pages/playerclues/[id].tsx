@@ -3,6 +3,7 @@ import { Card } from '@/utils/interfaces'
 import LoadingSpinner from '@/components/LoadingSpinner'
 import Image from 'next/image'
 import prisma from '@/utils/prisma'
+import Head from 'next/head'
 const PlayerClues = ({data}:Card) => {
     let para=data?.Clues
     const newPara=para?.split(".").map(str => <p key={str}>{str}</p>);
@@ -14,6 +15,12 @@ const PlayerClues = ({data}:Card) => {
   return(
     
     <div className='bg-black   pb-20 flex flex-col items-center justify-center '>
+            <Head>
+    <title>{data.Name}</title>
+    <meta
+  name="description"
+  content={`Challenger your self with clues where you get 5 different clues to guess the player ${data.Name}`}></meta>
+    </Head>
       <div className='h-[180vh]'>
       <Image src={data?.Image} className=" w-[400px] md:w-[700px] p-4 rounded-3xl mt-10 md:ml-12  " height={0}  width={400}  alt="player image"  />
       <p className='text-3xl  pl-7 text-white mt-5'><span className='text-green-500'>Name: </span>{data?.Name}</p>
