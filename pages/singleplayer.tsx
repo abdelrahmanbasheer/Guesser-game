@@ -1,6 +1,7 @@
 import LoadingSpinner from "@/components/LoadingSpinner";
 import { getPlayer } from "@/utils/function";
 import { Card } from "@/utils/interfaces";
+import Head from "next/head";
 import React, { useEffect, useState } from "react";
 import { CustomPlaceholder } from "react-placeholder-image";
 const Singleplayer = () => {
@@ -87,6 +88,12 @@ const Singleplayer = () => {
       .map((str, index) => <p key={index} className="fade-in-text">{str}</p>);
     return (
       <div className="h-[180vh] bg-black text-center lg:py-[10%] py-[25%]">
+          <Head>
+    <title>SinglePlayer</title>
+    <meta
+  name="description"
+  content="Challenger your self with clues where you get 5 different clues to guess the player"></meta>
+    </Head>
         <form
           onSubmit={(e) => {
             e.preventDefault();
