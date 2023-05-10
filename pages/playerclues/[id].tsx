@@ -16,10 +16,10 @@ const PlayerClues = ({data}:Card) => {
     
     <div className='bg-black   pb-20 flex flex-col items-center justify-center '>
             <Head>
-    <title>{data.Name}</title>
+    <title>{data?.Name}</title>
     <meta
   name="description"
-  content={`Challenger your self with clues where you get 5 different clues to guess the player ${data.Name}`}></meta>
+  content={`Challenger your self with clues where you get 5 different clues to guess the player ${data?.Name}`}></meta>
     </Head>
       <div className='h-[180vh]'>
       <Image src={data?.Image} className=" w-[400px] md:w-[700px] p-4 rounded-3xl mt-10 md:ml-12  " height={0}  width={400}  alt="player image"  />
