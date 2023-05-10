@@ -9,7 +9,7 @@ type Playerclues={
 
 export interface Card{
     data:{
-    filter(arg0: (player: Playerclues) => {}): unknown;
+    filter(arg0: (player: Playerclues) => {}): any;
     Name:string,
     Image:string,
     Clues:string,
