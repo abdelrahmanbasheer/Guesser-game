@@ -17,7 +17,7 @@ const Singleplayer = () => {
   }, []);
 
   function randomId() {
-    const tempId = Math.floor(Math.random() * 80) + 1;
+    const tempId = Math.floor(Math.random() * 104) + 1;
     setId(tempId);
   }
   const handleChange=(e)=>{
