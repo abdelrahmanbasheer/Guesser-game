@@ -12,6 +12,9 @@ module.exports = {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
         'gradient-conic':
           'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
+          'gamebg': "url('/bg-game.png')",
+          'homemobile': "url('/bg-home.png')",
+          'homebig': "url('/bg-home-big.jpg')",
       },
       screens:{
         vs:'360px'

@@ -1,9 +1,9 @@
 import LoadingSpinner from "@/components/LoadingSpinner";
 import { getPlayer } from "@/utils/function";
 import { Card } from "@/utils/interfaces";
-import prisma from "@/utils/prisma";
 import React, { useEffect, useState } from "react";
-const Singleplayer = ({allPlayers}) => {
+import { CustomPlaceholder } from "react-placeholder-image";
+const Singleplayer = () => {
   const [id, setId]           = useState<number>();
   const [counter, setCounter] = useState<number>(1);
   const [answers, setAnswers] = useState<number>(5);
@@ -63,7 +63,7 @@ const Singleplayer = ({allPlayers}) => {
     }
   }
   const handleClickScroll = () => {
-    const element = document.getElementById('nav-1');
+    const element = document.getElementById('p-1');
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
     }
@@ -79,7 +79,6 @@ const Singleplayer = ({allPlayers}) => {
 )
   if (fetchPlayer.isError)
     return <h1>this is an error{fetchPlayer.isError}</h1>;
-
   if (data) {
     let para = data?.Clues;
     const newPara = para
@@ -115,7 +114,7 @@ const Singleplayer = ({allPlayers}) => {
               {" "}
               فاضلك {answers + " "}محاولات{" "}
             </span>
-            <br />
+            <br id="p-1"/>
             لو مش متاكد من الإمْلاء الصح جرب في اسم الشهره و العيله بس منغير الاسم الاول
           </p>
           {res&&<p className="text-white">his correct name is :{data.Name}</p>}
@@ -131,10 +130,22 @@ const Singleplayer = ({allPlayers}) => {
         <p className="text-red-500 font-semibold">
           {answers === 0 && " محاولاتك خلصت جرب تحل اللاعب اللي بعده "}
         </p>
+        
+          {
+             result!="true" &&
+            <CustomPlaceholder className="mx-auto rounded-3xl w-[300px] md:w-[600px]"
+            width={300}
+            height={300}
+            backgroundColor="#0B1927"
+            textColor="#ffffff"
+            text="placeholder"
+          />
+          }
         {result === "true" && (
           <img
+            loading="eager"
             src={data?.Image}
-            className="fade-in w-[600px] rounded-3xl m-5 h-[300px] mx-[auto]"
+            className="fade-in w-[300px] md:w-[600px] rounded-3xl m-5 h-[300px] mx-[auto]"
           ></img>
         )}
 
@@ -165,7 +176,7 @@ const Singleplayer = ({allPlayers}) => {
         <p className="text-white p-7 text-base">{newPara}</p>
         <div className="flex gap-5 m-5 justify-center">
           <button
-            className="text-white rounded-full cursor-pointer p-2 bg-green-600 lg:hover:font-bold"
+            className="text-white rounded-full cursor-pointer p-2 bg-green-600 lg:hover:font-bold  w-[120px]"
             onClick={() => {
               randomId();
               setResult(false);
@@ -179,7 +190,7 @@ const Singleplayer = ({allPlayers}) => {
             Next player
           </button>
           <button
-            className="text-white rounded-full cursor-pointer p-2 bg-green-600 lg:hover:font-bold"
+            className="text-white rounded-full cursor-pointer p-2  bg-green-600 lg:hover:font-bold w-[120px]"
             onClick={() => {
               setCounter((prev) => prev + 1);
             }}
@@ -193,10 +204,9 @@ const Singleplayer = ({allPlayers}) => {
 };
 
 export default Singleplayer;
-export async function getStaticProps() {
-  const allPlayers=await prisma.player.findMany()
-  
-  return{
-      props:{allPlayers}
-  }
-}
+// export async function getStaticProps() {
+//   const allPlayers=await prisma.player.findMany()
+//   return{
+//       props:{allPlayers}
+//   }
+// }

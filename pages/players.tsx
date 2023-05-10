@@ -2,9 +2,11 @@ import React, { useState } from 'react'
 import PlayerCard from '@/components/PlayerCard'
 import Link from 'next/link'
 import prisma from '@/utils/prisma'
+import { Card } from '@/utils/interfaces'
 
-const players = ({data}) => {
+const players:React.FC<Card>= ({data}) => {
     const [query, setQuery] = useState<string>("")
+    
   return (
     <div className={`bg-black h-full pb-10`}>
         <div className='flex mt-7 items-center  md:gap-2'>
@@ -13,10 +15,9 @@ const players = ({data}) => {
         </div>
         <ul className='flex md:flex-row justify-center flex-wrap flex-col m-10 gap-5'>
             {
-            data.filter((player: {
-              FamName: string, Name: string 
-}) => {
+            data.filter((player) => {
                 if (query === '') {
+                
                   return player;
                 } else if (player.Name.toLowerCase().startsWith(query.toLowerCase())||player.FamName.toLowerCase().startsWith(query.toLowerCase())) {
                   return player;

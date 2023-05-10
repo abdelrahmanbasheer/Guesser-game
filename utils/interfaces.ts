@@ -1,5 +1,15 @@
- export interface Card{
+type Playerclues={
+    Name:string,
+    Image:string,
+    Clues:string,
+    Club:string,
+    id:number,
+    FamName:string,
+}
+
+export interface Card{
     data:{
+    filter(arg0: (player: Playerclues) => {}): unknown;
     Name:string,
     Image:string,
     Clues:string,
