@@ -27,7 +27,6 @@ const Singleplayer = () => {
   }
   function handleSubmit() {
     let splitFamName=data.FamName.split("")
-    let splitName=    data.Name.split("")
     let splitInput=   input.split("")
     let counter=0
     let inputcouter=0
@@ -140,19 +139,16 @@ const Singleplayer = () => {
         
           {
              result!="true" &&
-            <CustomPlaceholder className="mx-auto rounded-3xl w-[300px] md:w-[600px]"
-            width={300}
-            height={300}
-            backgroundColor="#0B1927"
-            textColor="#ffffff"
-            text="placeholder"
-          />
+             <>
+            <p  className=" mx-auto rounded-3xl  font-bold text-white mb-3" > الصوره ملهاش علاقه</p>
+            <p  className="bg-homemobile mx-auto rounded-3xl h-[400px] bg-no-repeat w-[300px] md:w-[300px] blur-sm font-bold " ></p>
+            </>
           }
         {result === "true" && (
           <img
             loading="eager"
             src={data?.Image}
-            className="fade-in w-[300px] md:w-[600px] rounded-3xl m-5 h-[300px] mx-[auto]"
+            className="fade-in w-[300px] md:w-[550px] rounded-3xl m-5 h-[300px] mx-[auto]"
           ></img>
         )}
 
